@@ -1,0 +1,31 @@
+server:
+  port: 8082
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dictionary
+    username: root
+    password: admin
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    hibernate:
+      ddl-auto: update
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: false
+    deserialization:
+      adjust-dates-to-context-time-zone: false
+      fail-on-unknown-properties: false
+
+logging:
+  level:
+    org.zalando.logbook.Logbook: TRACE
+
+
+logbook:
+  format:
+    style: json
+
+
+springdoc:
+  packages-to-scan: "ge.ka.ubani.georgiabackend.controller"
