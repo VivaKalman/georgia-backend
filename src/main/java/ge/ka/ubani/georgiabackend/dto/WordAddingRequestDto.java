@@ -9,7 +9,7 @@ import lombok.Value;
 import java.util.UUID;
 
 @Value
-@Builder
+@Builder(toBuilder = true)
 @JsonDeserialize(builder = WordAddingRequestDto.WordAddingRequestDtoBuilder.class)
 public class WordAddingRequestDto {
     @JsonProperty

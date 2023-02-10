@@ -154,6 +154,21 @@
     </changeSet>
 
 
+    <changeSet id="6" author="VK">
+        <createIndex tableName="root_word" indexName="root_word_word_idx">
+            <column name="word"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="7" author="OMNI-2760">
+        <addColumn tableName="root_word">
+            <column name="root_word" type="BOOLEAN" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+
 
 
 </databaseChangeLog>

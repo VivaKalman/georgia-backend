@@ -63,6 +63,9 @@ public class RootWord {
     private Adjective adjective;
 
     @Column
+    private boolean rootWord;
+
+    @Column
     @CreationTimestamp
     private LocalDateTime createDate;
     @Column

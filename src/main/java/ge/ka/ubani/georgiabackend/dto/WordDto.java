@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import ge.ka.ubani.georgiabackend.enums.SpeechPartType;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Value;
 
 import java.util.UUID;
@@ -11,6 +12,7 @@ import java.util.UUID;
 @Value
 @Builder
 @JsonDeserialize(builder = WordDto.WordDtoBuilder.class)
+@EqualsAndHashCode(of = "id")
 public class WordDto {
     @JsonProperty
     UUID id;
@@ -30,4 +32,6 @@ public class WordDto {
     AdjectiveDto adjective;
     @JsonProperty
     VerbDto verb;
+    @JsonProperty
+    boolean rootWord;
 }

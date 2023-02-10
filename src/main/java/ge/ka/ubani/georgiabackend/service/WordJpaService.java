@@ -6,7 +6,7 @@ import ge.ka.ubani.georgiabackend.dto.WordDto;
 import java.util.List;
 import java.util.UUID;
 
-public interface WordService {
+public interface WordJpaService {
 
     WordDto getById(UUID id);
 
