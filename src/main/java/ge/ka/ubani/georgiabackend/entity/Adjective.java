@@ -37,7 +37,7 @@ public class Adjective {
 
     @Column
     @CreationTimestamp
-    private LocalDateTime creationDate;
+    private LocalDateTime createDate;
     @Column
     @UpdateTimestamp
     private LocalDateTime updateDate;

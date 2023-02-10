@@ -1,14 +1,18 @@
-server:
-  port: 8082
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/dictionary
+    url: jdbc:postgresql://db:5432/dictionary
     username: root
     password: admin
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQL9Dialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
+  liquibase:
+    change-log: classpath:db/liquibase-changelog.xml
+    database-change-log-table: notification-gate-change-log-table
+    database-change-log-lock-table: notification-gate-change-log-lock-table
+    parameters:
+      default-schema-prefix: public
   jackson:
     default-property-inclusion: non_null
     serialization:
@@ -21,11 +25,11 @@ logging:
   level:
     org.zalando.logbook.Logbook: TRACE
 
-
 logbook:
   format:
     style: json
-
+  include:
+    - '/v1/**'
 
 springdoc:
   packages-to-scan: "ge.ka.ubani.georgiabackend.controller"

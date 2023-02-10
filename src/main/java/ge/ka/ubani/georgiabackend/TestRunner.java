@@ -1,7 +1,9 @@
 package ge.ka.ubani.georgiabackend;
 
+import ge.ka.ubani.georgiabackend.entity.Adjective;
 import ge.ka.ubani.georgiabackend.entity.Noun;
 import ge.ka.ubani.georgiabackend.entity.RootWord;
+import ge.ka.ubani.georgiabackend.entity.UseCase;
 import ge.ka.ubani.georgiabackend.enums.SpeechPartType;
 import ge.ka.ubani.georgiabackend.repository.RootWordRepository;
 import ge.ka.ubani.georgiabackend.repository.UseCaseRepository;
@@ -15,7 +17,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Log4j2
-@Component
+//@Component
 @RequiredArgsConstructor
 public class TestRunner implements CommandLineRunner {
 
@@ -27,7 +29,7 @@ public class TestRunner implements CommandLineRunner {
 //        RootWord rootWord = RootWord.builder()
 //            .word("ბავშვი")
 //            .type(SpeechPartType.NOUN)
-//            .meaning("ребенок, child")
+//            .translate("ребенок, child")
 //            .noun(
 //                Noun.builder()
 //                    .singular("ბავშვი")

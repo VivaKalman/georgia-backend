@@ -1,0 +1,159 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="VK">
+        <createTable tableName="adjective">
+            <column name="ID" type="UUID">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="CREATE_DATE" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATE_DATE" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="POSITIVE" type="VARCHAR">
+            </column>
+            <column name="COMPARATIVE" type="VARCHAR">
+            </column>
+            <column name="SUPERLATIVE" type="VARCHAR">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="VK">
+        <createTable tableName="noun">
+            <column name="ID" type="UUID">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="CREATE_DATE" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATE_DATE" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="singular" type="VARCHAR">
+            </column>
+            <column name="plural" type="VARCHAR">
+            </column>
+            <column name="nominative" type="VARCHAR">
+            </column>
+            <column name="ergative" type="VARCHAR">
+            </column>
+            <column name="dative" type="VARCHAR">
+            </column>
+            <column name="genitive" type="VARCHAR">
+            </column>
+            <column name="instrumental" type="VARCHAR">
+            </column>
+            <column name="adverbial" type="VARCHAR">
+            </column>
+            <column name="vocative" type="VARCHAR">
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="3" author="VK">
+        <createTable tableName="verb">
+            <column name="ID" type="UUID">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="CREATE_DATE" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATE_DATE" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="PRESENT_ONE_SINGLE" type="VARCHAR">
+            </column>
+            <column name="PRESENT_TWO_SINGLE" type="VARCHAR">
+            </column>
+            <column name="PRESENT_THREE_SINGLE" type="VARCHAR">
+            </column>
+            <column name="PRESENT_ONE_PLURAL" type="VARCHAR">
+            </column>
+            <column name="PRESENT_TWO_PLURAL" type="VARCHAR">
+            </column>
+            <column name="PRESENT_THREE_PLURAL" type="VARCHAR">
+            </column>
+        </createTable>
+    </changeSet>
+
+
+
+    <changeSet id="4" author="VK">
+        <createTable tableName="root_word">
+            <column name="ID" type="UUID">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="CREATE_DATE" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATE_DATE" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="word" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+            <column name="translate" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+            <column name="meaning" type="VARCHAR">
+            </column>
+            <column name="ref_word_id" type="UUID">
+                <constraints foreignKeyName="fk_parent_word" references="root_word(ID)"/>
+            </column>
+            <column name="noun_id" type="UUID">
+                <constraints foreignKeyName="fk_noun_word" references="noun(ID)"/>
+            </column>
+            <column name="verb_id" type="UUID">
+                <constraints foreignKeyName="fk_verb_word" references="verb(ID)"/>
+            </column>
+            <column name="adjective_id" type="UUID">
+                <constraints foreignKeyName="fk_adjective_word" references="adjective(ID)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="5" author="VK">
+        <createTable tableName="use_case">
+            <column name="ID" type="UUID">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="CREATE_DATE" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATE_DATE" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="root_word_id" type="UUID">
+                <constraints nullable="false"
+                             foreignKeyName="fk_root_word" references="root_word(ID)"/>
+            </column>
+
+            <column name="origin" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+            <column name="translate" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+
+
+</databaseChangeLog>

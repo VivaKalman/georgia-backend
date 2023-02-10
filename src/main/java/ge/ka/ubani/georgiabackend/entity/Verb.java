@@ -42,7 +42,7 @@ public class Verb {
 
     @Column
     @CreationTimestamp
-    private LocalDateTime creationDate;
+    private LocalDateTime createDate;
     @Column
     @UpdateTimestamp
     private LocalDateTime updateDate;
